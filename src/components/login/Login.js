@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './Login.css';
 
+import PlayCircleFilled from '@material-ui/icons/PlayCircleFilledRounded'
+import Person from '@material-ui/icons/PersonRounded'
+import VpnKey from '@material-ui/icons/VpnKeyRounded'
+
 class App extends Component {
   render() {
     const hour = new Date().getHours()
@@ -21,17 +25,23 @@ class App extends Component {
     return (
       <div className="Login">
         <form>
+          <PlayCircleFilled className="logo" />
+
           <h1>Bem-vindo ao Mudifast</h1>
           <p>Tenha {period}</p>
 
           <div>
             <div className="input">
-              <h5>Matrícula</h5>
-              <input type="text"/>
+              <div className="inputLogo">
+                <Person />
+              </div>
+              <input type="text" placeholder="Matrícula"/>
             </div>
             <div className="input">
-              <h5>Senha</h5>
-              <input type="text"/>
+              <div className="inputLogo">
+                <VpnKey />
+              </div>
+              <input type="password" placeholder="Senha"/>
             </div>
 
             <button>Entrar</button>
