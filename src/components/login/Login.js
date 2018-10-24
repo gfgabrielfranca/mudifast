@@ -5,6 +5,8 @@ import PlayCircleFilled from '@material-ui/icons/PlayCircleFilledRounded'
 import Person from '@material-ui/icons/PersonRounded'
 import VpnKey from '@material-ui/icons/VpnKeyRounded'
 
+import Input from './input/Input'
+
 class App extends Component {
   state = {
     matricula: '',
@@ -53,6 +55,8 @@ class App extends Component {
           <h1>Bem-vindo ao Mudifast</h1>
 
           <p>Tenha {period}</p>
+
+          {/* <Input icon={<Person/>}/> */}
 
           <div>
             <div className="input">

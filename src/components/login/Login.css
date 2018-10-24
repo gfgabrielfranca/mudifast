@@ -55,10 +55,12 @@
 
 .Login .inputLogo {
     display: flex;
-    padding-left: 7.5px;
-    padding-right: 7.5px;
+    width: 40px;
+    height: 40px;
     align-items: center;
+    justify-content: center;
     border-radius: 3px;
+    position: absolute;
 }
 
 .Login .inputLogo > svg {
@@ -71,9 +73,9 @@
 }
 
 .Login .input > input {
-    width: calc(100% - 22px);
+    width: 100%;
     height: 18px;
-    padding: 10px 10px 10px 0;
+    padding: 10px 10px 10px 40px;
     border-radius: 3px;
     border: none;
     border-left: none;
@@ -89,7 +91,7 @@
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus {
-    -webkit-box-shadow: inset 0 0 0px 9999px #fafafa;
+    box-shadow: inset 0 0 0px 9999px #fafafa;
 }
 
 .Login form > div > button {

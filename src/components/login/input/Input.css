@@ -1,0 +1,48 @@
+.Input {
+    display: flex;
+    margin-bottom: 16px;
+    border: 1px solid #efefef;
+    border-radius: 3px;
+    background-color: #fafafa;
+}
+
+.Input > div {
+    display: flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    position: absolute;
+}
+
+.Input > div > svg {
+    fill: #aaa;
+    transition: fill .2s ease;
+}
+
+.inputFocusable > div > svg {
+    fill: #3498db;
+}
+
+.Input > input {
+    width: 100%;
+    height: 18px;
+    padding: 10px 10px 10px 40px;
+    border-radius: 3px;
+    border: none;
+    border-left: none;
+    outline: none;
+    background-color: transparent;
+    color: #555;
+}
+
+.Input > input::placeholder {
+    color: #aaa;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+    box-shadow: inset 0 0 0px 9999px #fafafa;
+}
