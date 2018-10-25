@@ -1,24 +1,15 @@
-import React, { Component } from 'react';
-import './Login.css';
-
+import React, { Component } from 'react'
 import PlayCircleFilled from '@material-ui/icons/PlayCircleFilledRounded'
 import Person from '@material-ui/icons/PersonRounded'
 import VpnKey from '@material-ui/icons/VpnKeyRounded'
 
+import './Login.css';
 import Input from './input/Input'
 
-class App extends Component {
+class Login extends Component {
   state = {
     matricula: '',
     senha: ''
-  }
-
-  handleFocus = (e) => {
-    e.target.parentNode.classList.add("inputFocusable")
-  }
-
-  handleBlur = (e) => {
-    e.target.parentNode.classList.remove("inputFocusable")
   }
 
   handleChange = (e) => {
@@ -47,6 +38,16 @@ class App extends Component {
       period = "uma boa tarde"
     }
 
+    let button;
+
+    if (this.state.matricula !== '' && this.state.senha) {
+      button = <button className="active">Entrar</button>
+    }
+
+    else {
+      button = <button tabIndex='-1'>Entrar</button>
+    }
+
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit}>
@@ -56,45 +57,23 @@ class App extends Component {
 
           <p>Tenha {period}</p>
 
-          {/* <Input icon={<Person/>}/> */}
-
           <div>
-            <div className="input">
-              <div className="inputLogo">
-                <Person />
-              </div>
+            <Input 
+              icon={<Person/>}
+              name="matricula"
+              type="text"
+              placeholder="Matrícula"
+              onChange={this.handleChange}
+              autoFocus />
 
-              <input
-                name="matricula"
-                type="text" 
-                placeholder="Matrícula" 
-                onFocus={this.handleFocus} 
-                onBlur={this.handleBlur}
-                onChange={this.handleChange}
-                autoFocus/>
-            </div>
+            <Input 
+              icon={<VpnKey/>}
+              name="senha"
+              type="password"
+              placeholder="Senha"
+              onChange={this.handleChange} />
 
-            <div className="input">
-              <div className="inputLogo">
-                <VpnKey />
-              </div>
-
-              <input
-                name="senha"
-                type="password"
-                placeholder="Senha" 
-                onFocus={this.handleFocus} 
-                onBlur={this.handleBlur}
-                onChange={this.handleChange}/>
-            </div>
-
-            {
-              this.state.matricula !== '' && this.state.senha !== '' ? (
-                <button className="active">Entrar</button>
-              ) : (
-                <button tabIndex='-1'>Entrar</button>
-              )
-            }
+            {button}
           </div>
         </form>
       </div>
@@ -102,4 +81,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Login;

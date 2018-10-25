@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Input.css';
 
-const Input = ({icon, name, type, placeholder, onFocus, onBlur, onChange}) => {
-  return (
-    <div className="Input">
-      <div>
-        {icon}
-      </div>
+class Input extends Component {
+  handleFocus = (e) => {
+    e.target.parentNode.classList.add("inputFocusable")
+  }
 
-      <input />
-        {/* name={props.name}
-        type={props.type}
-        placeholder={props.placeholder}/>
-        onFocus={this.handleFocus}
-        onBlur={this.handleBlur}
-        onChange={this.handleChange} /> */}
-    </div>
-  );
+  handleBlur = (e) => {
+    e.target.parentNode.classList.remove("inputFocusable")
+  }
+
+  render() {
+    const {icon, name, type, placeholder, onChange, autoFocus} = this.props
+
+    return (
+      <div className="Input">
+        <div>
+          {icon}
+        </div>
+  
+        <input
+          name={name}
+          type={type}
+          placeholder={placeholder}
+          onChange={(e) => {onChange(e)}}
+          autoFocus={autoFocus}
+          onFocus={this.handleFocus}
+          onBlur={this.handleBlur} />
+          
+      </div>
+    );
+  }
 }
 
 export default Input;
