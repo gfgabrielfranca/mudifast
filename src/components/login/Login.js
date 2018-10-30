@@ -1,10 +1,11 @@
-import React, { Component } from 'react'
-import PlayCircleFilled from '@material-ui/icons/PlayCircleFilledRounded'
-import Person from '@material-ui/icons/PersonRounded'
-import VpnKey from '@material-ui/icons/VpnKeyRounded'
+import React, { Component } from 'react';
+import PlayCircleFilled from '@material-ui/icons/PlayCircleFilledRounded';
+import Person from '@material-ui/icons/PersonRounded';
+import VpnKey from '@material-ui/icons/VpnKeyRounded';
 
 import './Login.css';
-import Input from './input/Input'
+import Input from './input/Input';
+import { Cookie } from '../../Utils';
 
 class Login extends Component {
   state = {
@@ -20,6 +21,8 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    Cookie.setCookie('login', true);
+    window.location.replace('/teste1');
   }
 
   render() {
