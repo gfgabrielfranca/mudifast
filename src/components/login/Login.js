@@ -22,7 +22,7 @@ class Login extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     Cookie.setCookie('login', true);
-    window.location.replace('/teste1');
+    window.location.replace('/portaria');
   }
 
   render() {

@@ -4,20 +4,14 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import './App.css';
 import { Cookie } from './Utils';
 import Login from './components/login/Login';
-import Menu from './components/menu/Menu';
-
-const teste1 = () => <h3>teste1</h3>
-const teste2 = () => <h3>teste2</h3>
-const teste3 = () => <h3>teste3</h3>
-const NotFound = () => <h1>404</h1>
+import Portaria from './components/portaria/Portaria';
+import Inform from './components/inform/Inform';
+import NotFound from './components/notFound/NotFound';
 
 const PrivateRouter = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => 
-    Cookie.getCookie('login') !== 'false' ? (
-      <div>
-        <Menu />
-        <Component {...props} />
-      </div>
+    JSON.parse(Cookie.getCookie('login')) ? (
+      <Component {...props} />
     ) : (
       <Redirect to='/login'/>
     )
@@ -26,8 +20,8 @@ const PrivateRouter = ({ component: Component, ...rest }) => (
 
 const LoginRouter = ({ ...rest }) => (
   <Route {...rest} render={props => 
-    Cookie.getCookie('login') !== 'false' ? (
-      <Redirect to='/teste1'/>      
+    JSON.parse(Cookie.getCookie('login')) ? (
+      <Redirect to='/portaria'/>      
     ) : (
       <Login />
     )
@@ -39,11 +33,10 @@ class App extends Component {
     return (
       <BrowserRouter className="App">
         <Switch>
-          <Redirect from="/" exact to="/teste1" />
+          <Redirect from="/" exact to="/portaria" />
           <LoginRouter path="/login"/>
-          <PrivateRouter path="/teste1" component={teste1} />
-          <PrivateRouter path="/teste2" component={teste2} />
-          <PrivateRouter path="/teste3" component={teste3} />
+          <PrivateRouter path="/portaria" component={Portaria} />
+          <PrivateRouter path="/informe" component={Inform} />
           <PrivateRouter component={NotFound} />
         </Switch>
       </BrowserRouter>

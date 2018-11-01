@@ -1,0 +1,16 @@
+.Menu {
+    display: flex;
+}
+
+.Menu .box {
+    display: flex;
+    width: 100px;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #00000040;
+}
+
+.Menu .box a {
+    text-align: center;
+    padding: 10px;
+}
